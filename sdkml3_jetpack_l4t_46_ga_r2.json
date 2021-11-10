@@ -1,0 +1,3551 @@
+{
+    "information": {
+        "schemaUrl": "",
+        "schemaVersion": "8.0",
+        "fileVersion": "0.3",
+        "release": {
+            "productCategory": "Jetson",
+            "targetOS": "Linux",
+            "serverType": [
+                "DEVZONE"
+            ],
+            "id": "",
+            "title": "JetPack 4.6",
+            "releaseVersion": "4.6",
+            "releaseEdition": "",
+            "releaseRevision": 2,
+            "releaseEditionMessage": "",
+            "releaseBuild": "",
+            "minSDKMVer": "1.7.0",
+            "releaseMessage": "",
+            "showInMainList": true,
+            "pidGroupId": "-1",
+            "devzoneProgramId": "874688",
+            "targetHW": [
+                "JETSON_AGX_XAVIER_TARGETS",
+                "JETSON_XAVIER_NX_TARGETS",
+                "JETSON_TX2_TARGETS",
+                "JETSON_TX1_TARGETS",
+                "JETSON_NANO_TARGETS"
+            ],
+            "hostOperatingSystemsSupportFor": {
+                "displayWarningForOS": [],
+                "hostGroups": [
+                    "ubuntu1604",
+                    "ubuntu1804"
+                ],
+                "targetGroups": [
+                    "ubuntu1604",
+                    "ubuntu1804"
+                ]
+            },
+            "estimateTargetDiskSizeInGB": "5.5",
+            "isInstallOnTargetEnabled": true,
+            "IntHWSupport": false,
+            "releaseNotes": {
+                "releaseNotesTitle": "What's New",
+                "releaseNotesURL": "https://docs.nvidia.com/jetson/archives/jetpack-archived/jetpack-46/release-notes/index.html",
+                "releaseNotesTooltip": "<div><span class=\"tooltip-title\">What's new in JetPack 4.6:</span><ul><li>New versions of CUDA, cuDNN and TensorRT.</li><li>Image based Over The Air Update tools.</li><li>A/B Root File System Redundancy support.</li><li>New flashing tool using initrd to flash both internal and external media.</li><li>Loading kernel and rootfs from NVMe on Jetson Xavier NX and Jetson AGX Xavier.</li><li>Configuring for Raspberry-PI IMX219 or MX477 at run time using Jetson-IO tool.</li></ul><br/><a href=\"https://docs.nvidia.com/jetson/archives/jetpack-archived/jetpack-46/release-notes/index.html\" target=\"_blank\" class=\"tooltip-link\">Open Release Notes</a></div>",
+                "releaseNotesDownload": false
+            },
+            "supportedAdditionalSDKList": [
+                {
+                    "id": "NV_JETPACK_ADDITIONAL_SDK_DEEPSTREAM",
+                    "version": "6.0",
+                    "revision": 0,
+                    "default": "off"
+                },
+                {
+                    "id": "NV_JETPACK_ADDITIONAL_SDK_RIVERMAX",
+                    "version": "1.8",
+                    "revision": 0,
+                    "default": "off"
+                }
+            ]
+        },
+        "targetAccessInfo": {
+            "user": "",
+            "password": "",
+            "host": "192.168.55.1",
+            "port": "22",
+            "supportsExternalStorage": true
+        }
+    },
+    "compDirectory": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/JETPACK_46_b194/",
+    "sections": [
+        {
+            "id": "NV_HOST_SECTION",
+            "name": "host",
+            "title": "HOST",
+            "groups": [
+                "NV_CUDA_HOST_GROUP",
+                "NV_COMPUTERVISION_HOST_GROUP",
+                "NV_DEVTOOLS_HOST_GROUP"
+            ]
+        },
+        {
+            "id": "NV_FLASH_SECTION",
+            "name": "flash",
+            "title": "Jetson OS",
+            "selectable": true,
+            "selected": true,
+            "displayed": true,
+            "groups": [
+                "NV_JETPACK_L4T_IMAGE_SETUP_TARGET_GROUP",
+                "NV_JETPACK_L4T_FLASH_TARGET_GROUP"
+            ]
+        },
+        {
+            "id": "NV_POSTFLASH_SECTION",
+            "name": "postflash",
+            "title": "Jetson SDK Components",
+            "selectable": true,
+            "selected": true,
+            "displayed": true,
+            "groups": [
+                "NV_ADDITIONAL_SETUP_TARGET_GROUP",
+                "NV_CUDA_TARGET_GROUP",
+                "NV_AI_TARGET_GROUP",
+                "NV_COMPUTERVISION_TARGET_GROUP",
+                "NV_DOCKER_TARGET_GROUP",
+                "NV_MULTIMEDIA_API_TARGET_GROUP",
+                "NV_DEVTOOLS_TARGET_GROUP",
+                "NV_DEEPSTREAM_TARGET_GROUP",
+                "NV_RIVERMAX_TARGET_GROUP"
+            ]
+        }
+    ],
+    "groups": [
+        "NV_CUDA_HOST_GROUP",
+        {
+            "id": "NV_CUDA_HOST_GROUP",
+            "name": "CUDA",
+            "groupType": "host",
+            "installedOn": "host",
+            "description": "The CUDA Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.",
+            "versions": [
+                {
+                    "version": "10.2",
+                    "components": [
+                        {
+                            "id": "NV_CUDA_HOST_COMP",
+                            "version": "10.2"
+                        },
+                        {
+                            "id": "NV_CUDA_CROSS_HOST_COMP",
+                            "version": "10.2"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_COMPUTERVISION_HOST_GROUP",
+        {
+            "id": "NV_COMPUTERVISION_HOST_GROUP",
+            "name": "Computer Vision",
+            "groupType": "host",
+            "installedOn": "host",
+            "description": "Libraries for Computer Vision and Image Processing.",
+            "versions": [
+                {
+                    "version": "1.6",
+                    "components": [
+                        {
+                            "id": "NV_VISIONWORKS_HOST_COMP",
+                            "version": "1.6"
+                        },
+                        {
+                            "id": "NV_VPI_HOST_COMP",
+                            "version": "1.1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_DEVTOOLS_HOST_GROUP",
+        {
+            "id": "NV_DEVTOOLS_HOST_GROUP",
+            "name": "Developer Tools",
+            "groupType": "host",
+            "installedOn": "host",
+            "description": "The NVIDIA Developer Tools are a collection of applications, which allow developers to build, debug, profile, and optimize class-leading and cutting-edge software.",
+            "versions": [
+                {
+                    "version": "4.6",
+                    "components": [
+                        {
+                            "id": "NV_L4T_NVIDIA_NSIGHT_GRAPHICS_HOST_COMP",
+                            "version": "2021.2"
+                        },
+                        {
+                            "id": "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_HOST_COMP",
+                            "version": "2021.2"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_JETPACK_L4T_IMAGE_SETUP_TARGET_GROUP",
+        {
+            "id": "NV_JETPACK_L4T_IMAGE_SETUP_TARGET_GROUP",
+            "name": "Jetson OS image",
+            "groupType": "target_image",
+            "installedOn": "target",
+            "description": "Bootloader and root filesystem with kernel and NVIDIA drivers.",
+            "versions": [
+                {
+                    "version": "1.1.1",
+                    "components": [
+                        {
+                            "id": "NV_L4T_DRIVERS_T186_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_DRIVERS_T194_COMP",
+                            "version": "32.6.1"
+                        },
+                        {
+                            "id": "NV_L4T_DRIVERS_T210_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T186_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP",
+                            "version": "32.6.1"
+                        },
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T210_COMP",
+                            "version": "32.6"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_JETPACK_L4T_FLASH_TARGET_GROUP",
+        {
+            "id": "NV_JETPACK_L4T_FLASH_TARGET_GROUP",
+            "name": "Flash Jetson OS",
+            "groupType": "flash",
+            "installedOn": "target",
+            "description": "Flash target device.",
+            "flashMessage": "",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "components": [
+                        {
+                            "id": "NV_L4T_FLASH_CLARA_XAVIER_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FLASH_JETSON_XAVIER_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FLASH_XAVIER_NX_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FLASH_TX2_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FLASH_TX1_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_FLASH_NANO_WITH_OS_IMAGE_COMP",
+                            "version": "32.6"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_ADDITIONAL_SETUP_TARGET_GROUP",
+        {
+            "id": "NV_ADDITIONAL_SETUP_TARGET_GROUP",
+            "name": "Additional Setups",
+            "isVisible": false,
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "Some necessary additional setups need to be done before target components install.",
+            "versions": [
+                {
+                    "version": "1.0",
+                    "components": [
+                        {
+                            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+                            "version": "1.0"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_CUDA_TARGET_GROUP",
+        {
+            "id": "NV_CUDA_TARGET_GROUP",
+            "name": "CUDA",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "The CUDA Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.",
+            "versions": [
+                {
+                    "version": "10.2",
+                    "components": [
+                        {
+                            "id": "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP",
+                            "version": "10.2"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_AI_TARGET_GROUP",
+        {
+            "id": "NV_AI_TARGET_GROUP",
+            "name": "CUDA-X AI",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "With TensorRT, you can deliver fast inference using INT8 or FP16 optimized precision that significantly reduces latency. The NVIDIA CUDA Deep Neural Network (cuDNN) library provides high-performance GPU acceleration for your application.",
+            "versions": [
+                {
+                    "version": "8.0",
+                    "components": [
+                        {
+                            "id": "NV_L4T_CUDNN_TARGET_POST_INSTALL_COMP",
+                            "version": "8.2"
+                        },
+                        {
+                            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+                            "version": "8.0"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_COMPUTERVISION_TARGET_GROUP",
+        {
+            "id": "NV_COMPUTERVISION_TARGET_GROUP",
+            "name": "Computer Vision",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "Libraries for Computer Vision and Image Processing.",
+            "versions": [
+                {
+                    "version": "1.6",
+                    "components": [
+                        {
+                            "id": "NV_L4T_OPENCV_TARGET_POST_INSTALL_COMP",
+                            "version": "4.1.1"
+                        },
+                        {
+                            "id": "NV_L4T_VISIONWORKS_TARGET_POST_INSTALL_COMP",
+                            "version": "1.6"
+                        },
+                        {
+                            "id": "NV_L4T_VPI_TARGET_POST_INSTALL_COMP",
+                            "version": "1.1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_DOCKER_TARGET_GROUP",
+        {
+            "id": "NV_DOCKER_TARGET_GROUP",
+            "name": "NVIDIA Container Runtime",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "NVIDIA Container Runtime with Docker integration. Build and run GPU accelerated containers with Docker",
+            "versions": [
+                {
+                    "version": "0.10-beta",
+                    "components": [
+                        {
+                            "id": "NV_L4T_DOCKER_TARGET_POST_INSTALL_COMP",
+                            "version": "0.10"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_MULTIMEDIA_API_TARGET_GROUP",
+        {
+            "id": "NV_MULTIMEDIA_API_TARGET_GROUP",
+            "name": "Multimedia",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "The Jetson Multimedia API package is a collection of lower-level APIs that support flexible application development.  The GStreamer framework is also included, providing high-level APIs.",
+            "versions": [
+                {
+                    "version": "1.1.1",
+                    "components": [
+                        {
+                            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T186_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T194_COMP",
+                            "version": "32.6"
+                        },
+                        {
+                            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T210_COMP",
+                            "version": "32.6"
+                        }
+                    ]
+                }
+            ]
+        },
+        "NV_DEVTOOLS_TARGET_GROUP",
+        {
+            "id": "NV_DEVTOOLS_TARGET_GROUP",
+            "name": "Developer Tools",
+            "groupType": "target",
+            "installedOn": "target",
+            "description": "The NVIDIA Developer Tools are a collection of applications, which allow developers to build, debug, profile, and optimize class-leading and cutting-edge software.",
+            "versions": [
+                {
+                    "version": "2021.2",
+                    "components": [
+                        {
+                            "id": "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_TARGET_POST_INSTALL_COMP",
+                            "version": "2021.2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "components": {
+        "NV_CUDA_HOST_COMP": {
+            "id": "NV_CUDA_HOST_COMP",
+            "name": "CUDA on Host",
+            "description": "CUDA to be installed on host. CUDA is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_CUDA_EULA",
+            "versions": [
+                {
+                    "version": "10.2",
+                    "operatingSystems": [
+                        "ubuntu1604"
+                    ],
+                    "installSizeMB": 6412.01,
+                    "downloadFiles": [
+                        {
+                            "url": "ubuntu1604/cuda-repo-ubuntu1604-10-2-local_10.2.460-450.115-1_amd64.deb",
+                            "fileName": "cuda-repo-ubuntu1604-10-2-local_10.2.460-450.115-1_amd64.deb",
+                            "size": 2086469054,
+                            "checksum": "b793108a7a51b10c84bb9e2e459e7475",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "cuda-toolkit-10-2",
+                                            "version": "10.2.460"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get -y purge cuda-license-10-2\" 5",
+                                                "safe_apt_install \"sudo apt-get -y purge cuda-repo-ubuntu1604-10-2-local*\" 5",
+                                                "sudo apt-key del $(apt-key list | grep cudatools -B 1| grep 'pub' | cut -d ' ' -f 4 | cut -d/ -f 2)",
+                                                "sudo rm -rf /usr/local/cuda-10.2",
+                                                "sudo rm -rf /usr/share/doc/cuda*10-2",
+                                                "safe_apt_install \"sudo apt-get purge -y cuda-*-10-2\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                },
+                {
+                    "version": "10.2",
+                    "operatingSystems": [
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 6189.01,
+                    "downloadFiles": [
+                        {
+                            "url": "ubuntu1804/cuda-repo-ubuntu1804-10-2-local_10.2.460-450.115-1_amd64.deb",
+                            "fileName": "cuda-repo-ubuntu1804-10-2-local_10.2.460-450.115-1_amd64.deb",
+                            "size": 2045821842,
+                            "checksum": "5cee48c181653eaf6bc887ac87dcc096",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "cuda-toolkit-10-2",
+                                            "version": "10.2.460"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get -y purge cuda-license-10-2 \" 5",
+                                                "safe_apt_install \"sudo apt-get -y purge cuda-repo-ubuntu1804-10-2-local* \" 5",
+                                                "sudo apt-key del $(apt-key list | grep cudatools -B 1| grep 'pub' | cut -d ' ' -f 4 | cut -d/ -f 2)",
+                                                "sudo rm -rf /usr/local/cuda-10.2",
+                                                "sudo rm -rf /usr/share/doc/cuda*10-2",
+                                                "safe_apt_install \"sudo apt-get purge -y cuda-*-10-2 \" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_CUDA_CROSS_HOST_COMP": {
+            "id": "NV_CUDA_CROSS_HOST_COMP",
+            "name": "CUDA Cross Compile Package on Host",
+            "description": "CUDA Toolkit on Host for Cross Compiling. NVIDIA CUDA Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_CUDA_EULA",
+            "versions": [
+                {
+                    "version": "10.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 1607.01,
+                    "downloadFiles": [
+                        {
+                            "url": "cuda-repo-cross-aarch64-ubuntu1804-10-2-local_10.2.460-1_all.deb",
+                            "fileName": "cuda-repo-cross-aarch64-ubuntu1804-10-2-local_10.2.460-1_all.deb",
+                            "size": 481182304,
+                            "checksum": "cc0e748f54ddc7598cf58cf258460651",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "cuda-cross-aarch64-10-2",
+                                            "version": "10.2.460"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get -y purge cuda-repo-cross.*10-2.* \" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_CUDA_HOST_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_VISIONWORKS_HOST_COMP": {
+            "id": "NV_VISIONWORKS_HOST_COMP",
+            "name": "VisionWorks on Host",
+            "description": "NVIDIA VisionWorks Toolkit is a CUDA accelerated software development package for computer vision (CV) and image processing. The toolkit is designed to provide a production-quality, standard interface that implements and extends the OpenVX standard, enabling high performance computer vision applications on NVIDIA Tegra devices.",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_VISIONWORKS_EULA",
+            "versions": [
+                {
+                    "version": "1.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 320.08,
+                    "downloadFiles": [
+                        {
+                            "url": "libvisionworks-repo_1.6.0.501_amd64.deb",
+                            "fileName": "libvisionworks-repo_1.6.0.501_amd64.deb",
+                            "size": 66710432,
+                            "checksum": "056ea0183c8a779ed097f37d2b46fb4f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "repoPackageInfo": {
+                                        "name": "libvisionworks-repo",
+                                        "version": "1.6.0.501",
+                                        "keyFile": "GPGKEY"
+                                    },
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks",
+                                            "version": "1.6.0.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-dev",
+                                            "version": "1.6.0.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-samples",
+                                            "version": "1.6.0.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get -y purge libvisionworks-repo \" 5",
+                                                "sudo apt-key del $(apt-key list | grep visionworks -B 1| grep 'pub' | cut -d ' ' -f 4 | cut -d/ -f 2)"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libvisionworks-sfm-repo_0.90.4.501_amd64.deb",
+                            "fileName": "libvisionworks-sfm-repo_0.90.4.501_amd64.deb",
+                            "size": 20568508,
+                            "checksum": "478fe3b81baf2a36a5c62b142e47aa52",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "repoPackageInfo": {
+                                        "name": "libvisionworks-sfm-repo",
+                                        "version": "0.90.4.501",
+                                        "keyFile": "GPGKEY"
+                                    },
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks-sfm",
+                                            "version": "0.90.4.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-sfm-dev",
+                                            "version": "0.90.4.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get -y purge libvisionworks-sfm-repo \" 5",
+                                                "sudo apt-key del $(apt-key list | grep visionworks -B 1| grep 'pub' | cut -d ' ' -f 4 | cut -d/ -f 2)"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libvisionworks-tracking-repo_0.88.2.501_amd64.deb",
+                            "fileName": "libvisionworks-tracking-repo_0.88.2.501_amd64.deb",
+                            "size": 13113714,
+                            "checksum": "30825790ca61fc8ae67e238c71ba31a6",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "repoPackageInfo": {
+                                        "name": "libvisionworks-tracking-repo",
+                                        "version": "0.88.2.501",
+                                        "keyFile": "GPGKEY"
+                                    },
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks-tracking",
+                                            "version": "0.88.2.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-tracking-dev",
+                                            "version": "0.88.2.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postUninstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get -y purge libvisionworks-tracking-repo \" 5",
+                                                "sudo apt-key del $(apt-key list | grep visionworks -B 1| grep 'pub' | cut -d ' ' -f 4 | cut -d/ -f 2)"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "NVIDIA_VisionWorks_References.zip",
+                            "fileName": "NVIDIA_VisionWorks_References.zip",
+                            "size": 5350765,
+                            "checksum": "fe8197f368f7edf37cd3f35b75a92584",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "zip",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}/documentations/VisionWorks/"
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_CUDA_HOST_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": true,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}/documentations/VisionWorks/"
+        },
+        "NV_VPI_HOST_COMP": {
+            "id": "NV_VPI_HOST_COMP",
+            "name": "VPI on Host",
+            "description": "Vision Programming Interface(VPI) is an API for accelerated computer vision and image processing for embedded systems.",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_VPI_EULA",
+            "versions": [
+                {
+                    "version": "1.1",
+                    "operatingSystems": [
+                        "ubuntu1604"
+                    ],
+                    "installSizeMB": 215.13,
+                    "downloadFiles": [
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-lib-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-lib-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 14241572,
+                            "checksum": "cdc971527e63b93f96e4c604fe2f2ae2",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "libnvvpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-dev-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-dev-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 55708,
+                            "checksum": "72d97c423e756cbe7ef893fd84a874a5",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-dev"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get install -y cmake g++\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-cross-aarch64-l4t-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-cross-aarch64-l4t-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 9240,
+                            "checksum": "a4d42f9a5fc3013e735dcb11dade92bc",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-cross-aarch64-l4t"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-python2.7-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-python2.7-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 530068,
+                            "checksum": "06fcc568f04eaf1fff2c2975c1e6c47a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "python-vpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-samples-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-samples-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 15144804,
+                            "checksum": "89398b0c7f6c96b5e7bd53ffe767dea1",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/ubuntu1604/vpi-demos-1.1.12-cuda10-x86_64-linux-ubuntu1604.deb",
+                            "fileName": "vpi-demos-1.1.12-cuda10-x86_64-linux-ubuntu1604.deb",
+                            "size": 48187484,
+                            "checksum": "1664b02337014f2b2f3e507b452e7078",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "if dpkg -l ubuntu-desktop",
+                                                "then",
+                                                "    # Install for ubuntu desktop edition",
+                                                "    safe_apt_install \"sudo apt-get update \" 5",
+                                                "    safe_apt_install \"sudo apt install -y libtbb2 libpng12-0 libavformat-ffmpeg56 libswscale-ffmpeg3 libavutil-ffmpeg54 libavcodec-ffmpeg56 libpng16-16 \" 5",
+                                                "    safe_apt_install \"sudo dpkg -i {{FILE_PATH}} \" 5",
+                                                "else",
+                                                "    # Ignore for ubuntu server edition",
+                                                "    true",
+                                                "fi"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_CUDA_HOST_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                },
+                {
+                    "version": "1.1",
+                    "operatingSystems": [
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 215.34,
+                    "downloadFiles": [
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-lib-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-lib-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 14241572,
+                            "checksum": "cdc971527e63b93f96e4c604fe2f2ae2",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "libnvvpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-dev-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-dev-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 55708,
+                            "checksum": "72d97c423e756cbe7ef893fd84a874a5",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-dev"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get install -y cmake g++\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-cross-aarch64-l4t-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-cross-aarch64-l4t-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 9240,
+                            "checksum": "a4d42f9a5fc3013e735dcb11dade92bc",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-cross-aarch64-l4t"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-python2.7-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-python2.7-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 530068,
+                            "checksum": "06fcc568f04eaf1fff2c2975c1e6c47a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "python-vpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/ubuntu1804/vpi-python3.6-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-python3.6-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 528068,
+                            "checksum": "79259714d88643101c9b2a6c20869ac8",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "python3-vpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-samples-1.1.12-cuda10-x86_64-linux.deb",
+                            "fileName": "vpi-samples-1.1.12-cuda10-x86_64-linux.deb",
+                            "size": 15144804,
+                            "checksum": "89398b0c7f6c96b5e7bd53ffe767dea1",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/ubuntu1804/vpi-demos-1.1.12-cuda10-x86_64-linux-ubuntu1804.deb",
+                            "fileName": "vpi-demos-1.1.12-cuda10-x86_64-linux-ubuntu1804.deb",
+                            "size": 47640388,
+                            "checksum": "2e810c24c337eae053aa4f6a591b533d",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "if dpkg -l ubuntu-desktop",
+                                                "then",
+                                                "    # Install for ubuntu desktop edition",
+                                                "    safe_apt_install \"sudo apt-get update \" 5",
+                                                "    safe_apt_install \"sudo apt install -y libtbb2  libavformat57 libswscale4 libavutil55 libavcodec57 libfltk1.3 libfltk-gl1.3 libfltk-images1.3 \" 5",
+                                                "    safe_apt_install \"sudo dpkg -i {{FILE_PATH}} \" 5",
+                                                "else",
+                                                "    # Ignore for ubuntu server edition",
+                                                "    true",
+                                                "fi"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_CUDA_HOST_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": true
+        },
+        "NV_L4T_NVIDIA_NSIGHT_GRAPHICS_HOST_COMP": {
+            "id": "NV_L4T_NVIDIA_NSIGHT_GRAPHICS_HOST_COMP",
+            "name": "NVIDIA Nsight Graphics",
+            "description": "NVIDIA Nsight Graphics is a console-grade tool that allows developers to debug and profile OpenGL/GL ES applications.",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_NSIGHT_EULA",
+            "versions": [
+                {
+                    "version": "2021.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 587.11,
+                    "downloadFiles": [
+                        {
+                            "url": "NVIDIA_Nsight_Graphics_L4T_Public_2021.2.21155.deb",
+                            "fileName": "NVIDIA_Nsight_Graphics_L4T_Public_2021.2.21155.deb",
+                            "size": 284092428,
+                            "checksum": "32be6a4346f7e4eaf8fbf965238e07af",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "2021.2.1",
+                                            "name": "nsight-graphics-for-embeddedlinux-2021.2.1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_HOST_COMP": {
+            "id": "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_HOST_COMP",
+            "name": "NVIDIA Nsight Systems",
+            "description": "NVIDIA Nsight Systems is a multi-core CPU sampling profiler that provides an interactive view of captured profiling data, helping improve overall application performance.",
+            "compType": "host",
+            "isVisible": true,
+            "licenseId": "NV_NSIGHT_EULA",
+            "versions": [
+                {
+                    "version": "2021.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 527.36,
+                    "downloadFiles": [
+                        {
+                            "url": "NsightSystems-linux-public-2021.2.3.8-73c8c79.deb",
+                            "fileName": "NsightSystems-linux-public-2021.2.3.8-73c8c79.deb",
+                            "size": 207587456,
+                            "checksum": "419cae16d850dee66f542121a46b4e89",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "2021.2.3.8-73c8c79",
+                                            "name": "nsight-systems-2021.2.3"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_DRIVERS_T186_COMP": {
+            "id": "NV_L4T_DRIVERS_T186_COMP",
+            "name": "Drivers for Jetson",
+            "description": "NVIDIA Tegra Linux Driver Package",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 418.9,
+                    "downloadFiles": [
+                        {
+                            "url": "T186/Jetson_Linux_R32.6.1_aarch64.tbz2",
+                            "fileName": "Jetson_Linux_R32.6.1_aarch64.tbz2",
+                            "size": 371419060,
+                            "checksum": "025d2fa011441ed84e3376032600f9da",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}",
+                                    "preInstallCommands": [
+                                        {
+                                            "userCommand": "sudo rm -rf {{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/"
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get update \" 5",
+                                                "safe_apt_install \"sudo apt-get install -y pigz lbzip2\" 5",
+                                                "tar xf {{FILE_PATH}}"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX2_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/"
+        },
+        "NV_L4T_DRIVERS_T194_COMP": {
+            "id": "NV_L4T_DRIVERS_T194_COMP",
+            "name": "Drivers for Jetson",
+            "description": "NVIDIA Tegra Linux Driver Package",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6.1",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 418.9,
+                    "downloadFiles": [
+                        {
+                            "url": "T194/Jetson_Linux_R32.6.1_aarch64.tbz2",
+                            "fileName": "Jetson_Linux_R32.6.1_aarch64.tbz2",
+                            "size": 371419060,
+                            "checksum": "025d2fa011441ed84e3376032600f9da",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}",
+                                    "preInstallCommands": [
+                                        {
+                                            "userCommand": "sudo rm -rf {{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/"
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get update \" 5",
+                                                "safe_apt_install \"sudo apt-get install -y pigz lbzip2\" 5",
+                                                "tar xf {{FILE_PATH}}"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/"
+        },
+        "NV_L4T_DRIVERS_T210_COMP": {
+            "id": "NV_L4T_DRIVERS_T210_COMP",
+            "name": "Drivers for Jetson",
+            "description": "NVIDIA Tegra Linux Driver Package",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 298,
+                    "downloadFiles": [
+                        {
+                            "url": "T210/Jetson-210_Linux_R32.6.1_aarch64.tbz2",
+                            "fileName": "Jetson-210_Linux_R32.6.1_aarch64.tbz2",
+                            "size": 275412975,
+                            "checksum": "79bf62ffafaaac69f787fbb6d1ade48c",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}",
+                                    "preInstallCommands": [
+                                        {
+                                            "userCommand": "sudo rm -rf {{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/"
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \"sudo apt-get update \" 5",
+                                                "safe_apt_install \"sudo apt-get install -y pigz lbzip2\" 5",
+                                                "tar xf {{FILE_PATH}}"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/"
+        },
+        "NV_L4T_FILE_SYSTEM_AND_OS_T186_COMP": {
+            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T186_COMP",
+            "name": "File System and OS",
+            "description": "File System",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 4855.22,
+                    "downloadFiles": [
+                        {
+                            "url": "T186/Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "fileName": "Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "size": 1499762780,
+                            "checksum": "51903cb9fbe16ed15521d18379d506be",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/",
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get install -y qemu-user-static \" 5",
+                                                "# Per bug 200502536 #35",
+                                                "safe_apt_install \" sudo apt-get install -y python \" 5"
+                                            ]
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "sudo tar xpf {{FILE_PATH}}",
+                                                "cd ..",
+                                                "sudo ./apply_binaries.sh",
+                                                "sudo mkdir -p rootfs/opt/nvidia/deb_repos"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX2_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_DRIVERS_T186_COMP",
+                            "operator": "==",
+                            "ver": "32.6"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/"
+        },
+        "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP": {
+            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP",
+            "name": "File System and OS",
+            "description": "File System",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6.1",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 4855.22,
+                    "downloadFiles": [
+                        {
+                            "url": "T194/Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "fileName": "Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "size": 1499762780,
+                            "checksum": "51903cb9fbe16ed15521d18379d506be",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/",
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get install -y qemu-user-static \" 5",
+                                                "# Per bug 200502536 #35",
+                                                "safe_apt_install \" sudo apt-get install -y python \" 5"
+                                            ]
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "sudo tar xpf {{FILE_PATH}}",
+                                                "cd ..",
+                                                "sudo ./apply_binaries.sh",
+                                                "sudo mkdir -p rootfs/opt/nvidia/deb_repos"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b211/T194/secureboot_R32.6.1_aarch64.tbz2",
+                            "fileName": "secureboot_R32.6.1_aarch64.tbz2",
+                            "size": 1337557,
+                            "checksum": "0e2999641277ef13a2051ee1a170820f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/",
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "tar xjvf {{FILE_PATH}}"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_DRIVERS_T194_COMP",
+                            "operator": "==",
+                            "ver": "32.6.1"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/"
+        },
+        "NV_L4T_FILE_SYSTEM_AND_OS_T210_COMP": {
+            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T210_COMP",
+            "name": "File System and OS",
+            "description": "File System",
+            "compType": "target_image",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 4855.22,
+                    "downloadFiles": [
+                        {
+                            "url": "T210/Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "fileName": "Tegra_Linux_Sample-Root-Filesystem_R32.6.1_aarch64.tbz2",
+                            "size": 1499762780,
+                            "checksum": "51903cb9fbe16ed15521d18379d506be",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "cmd",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/",
+                                    "preInstallCommands": [
+                                        {
+                                            "execBash": [
+                                                "safe_apt_install \" sudo apt-get install -y qemu-user-static \" 5",
+                                                "# Per bug 200502536 #35",
+                                                "safe_apt_install \" sudo apt-get install -y python \" 5"
+                                            ]
+                                        }
+                                    ],
+                                    "installCommands": [
+                                        {
+                                            "execBash": [
+                                                "sudo tar xpf {{FILE_PATH}}",
+                                                "cd ..",
+                                                "sudo ./apply_binaries.sh",
+                                                "sudo mkdir -p rootfs/opt/nvidia/deb_repos"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_DRIVERS_T210_COMP",
+                            "operator": "==",
+                            "ver": "32.6"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_APT_HOST"
+                    ]
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false,
+            "installPath": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra/rootfs/"
+        },
+        "NV_L4T_FLASH_CLARA_XAVIER_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_CLARA_XAVIER_WITH_OS_IMAGE_COMP",
+            "name": "Flash Clara AGX Xavier",
+            "description": "Flash Clara AGX Xavier",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 500,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils\" 5"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "echo sudo ./nvautoflash.sh",
+                                    "sudo ./nvautoflash.sh",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP",
+                            "operator": "==",
+                            "ver": "32.6.1"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_FLASH_JETSON_XAVIER_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_JETSON_XAVIER_WITH_OS_IMAGE_COMP",
+            "name": "Flash Jetson AGX Xavier",
+            "description": "Flash Jetson AGX Xavier",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 500,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "if [[ \"{{FLASH_OPTIONS}}\" =~ \"--storage\" ]]; then",
+                                    "safe_apt_install \"sudo apt-get -y install sshpass abootimg libxml2-utils nfs-kernel-server\" 5",
+                                    "else",
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils \" 5",
+                                    "fi"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "unset LC_ALL",
+                                    "if [[ \"{{FLASH_OPTIONS}}\" =~ \"--usb-instance\" ]]; then",
+                                    "echo sudo ./nvautoflash.sh {{FLASH_OPTIONS}}",
+                                    "sudo ./nvautoflash.sh {{FLASH_OPTIONS}}",
+                                    "else",
+                                    "echo sudo ./nvsdkmanager_flash.sh {{FLASH_OPTIONS}}",
+                                    "sudo ./nvsdkmanager_flash.sh {{FLASH_OPTIONS}}",
+                                    "fi",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "JETSON_AGX_XAVIER_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP",
+                            "operator": "==",
+                            "ver": "32.6.1"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_FLASH_XAVIER_NX_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_XAVIER_NX_WITH_OS_IMAGE_COMP",
+            "name": "Flash Jetson Xavier NX",
+            "description": "Flash Jetson Xavier NX",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 500,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "if [[ \"{{FLASH_OPTIONS}}\" =~ \"--storage\" ]]; then",
+                                    "safe_apt_install \"sudo apt-get -y install sshpass abootimg libxml2-utils nfs-kernel-server\" 5",
+                                    "else",
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils \" 5",
+                                    "fi"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "unset LC_ALL",
+                                    "if [[ \"{{FLASH_OPTIONS}}\" =~ \"--usb-instance\" ]]; then",
+                                    "echo sudo ./nvautoflash.sh {{FLASH_OPTIONS}}",
+                                    "sudo ./nvautoflash.sh {{FLASH_OPTIONS}}",
+                                    "else",
+                                    "echo sudo ./nvsdkmanager_flash.sh {{FLASH_OPTIONS}}",
+                                    "sudo ./nvsdkmanager_flash.sh {{FLASH_OPTIONS}}",
+                                    "fi",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "JETSON_XAVIER_NX_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T194_COMP",
+                            "operator": "==",
+                            "ver": "32.6.1"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_FLASH_TX2_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_TX2_WITH_OS_IMAGE_COMP",
+            "name": "Flash Jetson TX2",
+            "description": "Flash Jetson TX2",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 500,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils\" 5"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "echo sudo ./nvautoflash.sh",
+                                    "sudo ./nvautoflash.sh",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "JETSON_TX2_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T186_COMP",
+                            "operator": "==",
+                            "ver": "32.6"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_FLASH_TX1_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_TX1_WITH_OS_IMAGE_COMP",
+            "name": "Flash Jetson TX1",
+            "description": "Flash Jetson TX1",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 800,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils\" 5"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "if [ -e  ./bootloader/system.img ]; then",
+                                    "    echo sudo ./nvautoflash.sh --no-systemimg",
+                                    "    sudo ./nvautoflash.sh --no-systemimg",
+                                    "else",
+                                    "    echo sudo ./nvautoflash.sh",
+                                    "    sudo ./nvautoflash.sh",
+                                    "fi",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "JETSON_TX1_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T210_COMP",
+                            "operator": "==",
+                            "ver": "32.6"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_FLASH_NANO_WITH_OS_IMAGE_COMP": {
+            "id": "NV_L4T_FLASH_NANO_WITH_OS_IMAGE_COMP",
+            "name": "Flash Jetson Nano",
+            "description": "Flash Jetson Nano",
+            "compType": "flash",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "estimateInstallDurationSeconds": 800,
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 9520,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "parallel",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}/Linux_for_Tegra",
+                        "preInstallCommands": [
+                            {
+                                "execBash": [
+                                    "safe_apt_install \"sudo apt-get -y install libxml2-utils\" 5"
+                                ]
+                            }
+                        ],
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set -e",
+                                    "echo sudo ./nvautoflash.sh",
+                                    "sudo ./nvautoflash.sh",
+                                    "sleep 20"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_FILE_SYSTEM_AND_OS_T210_COMP",
+                            "operator": "==",
+                            "ver": "32.6"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_DATETIME_SETUP_TARGET_COMP": {
+            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+            "name": "DateTime Target Setup",
+            "description": "Setup target DateTime to match host DateTime, to avoid the target DateTime mess for new devices or after devices RTC battery dried.",
+            "compType": "target",
+            "isVisible": false,
+            "versions": [
+                {
+                    "version": "1.0",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 0,
+                    "downloadFiles": [],
+                    "installParameters": {
+                        "installEngineQueue": "default",
+                        "installDir": "{{TARGET_ROOT}}/{{BUNDLE_TITLE}}_{{BOARD_ID}}",
+                        "installCommands": [
+                            {
+                                "execBash": [
+                                    "set +e",
+                                    "host_datetime=$(date -u)",
+                                    "ssh -t -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no {{TARGET_USERNAME}}@{{TARGET_IP}} \"sudo date -u -s '$host_datetime'\"",
+                                    "exit 0"
+                                ]
+                            }
+                        ]
+                    },
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_JETPACK_L4T_FLASH_TARGET_GROUP",
+                            "type": "optional"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": false,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP",
+            "name": "CUDA Toolkit for L4T",
+            "description": "CUDA to be installed on target. CUDA is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU).",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_CUDA_EULA",
+            "estimateInstallDurationSeconds": 900,
+            "versions": [
+                {
+                    "version": "10.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 3412.01,
+                    "downloadFiles": [
+                        {
+                            "url": "cuda-repo-l4t-10-2-local_10.2.460-1_arm64.deb",
+                            "fileName": "cuda-repo-l4t-10-2-local_10.2.460-1_arm64.deb",
+                            "size": 1076614766,
+                            "checksum": "3669bb968ab46b0c4bbe07ce29a6b7fa",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "cuda-toolkit-10-2",
+                                            "version": "10.2"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postInstallCommands": [
+                                        {
+                                            "remoteExecBash": [
+                                                "safe_apt_install \"sudo apt-get install -y gnupg libgomp1 libfreeimage-dev libopenmpi-dev openmpi-bin\" 5",
+                                                "grep -q 'export PATH=.*/usr/local/cuda-10.2/bin' ~/.bashrc || echo 'export PATH=/usr/local/cuda-10.2/bin:$PATH'>>~/.bashrc",
+                                                "grep -q 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64' ~/.bashrc || echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+                            "operator": "==",
+                            "ver": "1.0"
+                        }
+                    ],
+                    "prerequisites": [
+                        "PREREQUISITE_DISK_SPACE_TARGET",
+                        "PREREQUISITE_NETWORK_TARGET",
+                        "PREREQUISITE_APT_TARGET"
+                    ]
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_CUDNN_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_CUDNN_TARGET_POST_INSTALL_COMP",
+            "name": "cuDNN on Target",
+            "description": "The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. Deep learning developers and researchers worldwide rely on the highly optimized routines in cuDNN which allow them to focus on designing and training neural network models rather than spending time on low-level performance tuning.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_CUDNN_EULA",
+            "versions": [
+                {
+                    "version": "8.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 1594.53,
+                    "downloadFiles": [
+                        {
+                            "url": "libcudnn8_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "fileName": "libcudnn8_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "size": 284693966,
+                            "checksum": "f0f38e79c23feda26da102b8cf226842",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.2.1.32-1+cuda10.2",
+                                            "name": "libcudnn8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libcudnn8-dev_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "fileName": "libcudnn8-dev_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "size": 266147514,
+                            "checksum": "bba4f74d3e9422e0bd5ba1cdaf01442c",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.2.1.32-1+cuda10.2",
+                                            "name": "libcudnn8-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libcudnn8-samples_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "fileName": "libcudnn8-samples_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "size": 1669912,
+                            "checksum": "f9703db8da789bae1f75ba55044eaa9a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.2.1.32-1+cuda10.2",
+                                            "name": "libcudnn8-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+                            "operator": "==",
+                            "ver": "1.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+            "name": "TensorRT on Target",
+            "description": "NVIDIA TensorRT is a high-performance deep learning inference for production deployment of deep learning applications. It optimizes your trained neural networks for runtime performance and delivers GPU-accelerated services for data center, embedded and automotive applications.\n\nThe NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. Deep learning developers and researchers worldwide rely on the highly optimized routines in cuDNN which allow them to focus on designing and training neural network models rather than spending time on low-level performance tuning.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_TENSORRT_EULA",
+            "estimateInstallDurationSeconds": 600,
+            "versions": [
+                {
+                    "version": "8.0",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 1100.23,
+                    "downloadFiles": [
+                        {
+                            "url": "libnvinfer8_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvinfer8_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 70845188,
+                            "checksum": "8d13eaf6a19a33a993e5b7b05886a4a5",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvinfer-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 75012796,
+                            "checksum": "991759315c0d2ae4d2d66f7f37d24276",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-plugin8_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvinfer-plugin8_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 5477560,
+                            "checksum": "3c24e28aa7a94cc323f2c85d2a9534b3",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-plugin8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-plugin-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvinfer-plugin-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 6033252,
+                            "checksum": "547e2cfd360dec7ffa41d828382274bd",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-plugin-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvonnxparsers8_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvonnxparsers8_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 597714,
+                            "checksum": "20b6b9d79a2f5d02230514f773ab3892",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvonnxparsers8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvonnxparsers-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvonnxparsers-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 382034,
+                            "checksum": "e5b6d4229705f07832a6a4194db488ac",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvonnxparsers-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvparsers8_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvparsers8_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 711106,
+                            "checksum": "d97bb7349fcdb52c7bffb76932092171",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvparsers8"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvparsers-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvparsers-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 539722,
+                            "checksum": "377559626ed855da91a5c2ba7176c149",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvparsers-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-bin_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "libnvinfer-bin_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 115166,
+                            "checksum": "6752801d7803e237e30f10e764bca84d",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-bin"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-doc_8.0.1-1+cuda10.2_all.deb",
+                            "fileName": "libnvinfer-doc_8.0.1-1+cuda10.2_all.deb",
+                            "size": 4708154,
+                            "checksum": "db3755f58f24b464e781cf3567f1866a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-doc"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvinfer-samples_8.0.1-1+cuda10.2_all.deb",
+                            "fileName": "libnvinfer-samples_8.0.1-1+cuda10.2_all.deb",
+                            "size": 451834364,
+                            "checksum": "da1e6aa90615eebe09c73462c6714591",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "libnvinfer-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "tensorrt_8.0.1.6-1+cuda10.2_arm64.deb",
+                            "fileName": "tensorrt_8.0.1.6-1+cuda10.2_arm64.deb",
+                            "size": 3620,
+                            "checksum": "8cb383cba4c3112dc3172ae3e7b8af0f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1.6-1+cuda10.2",
+                                            "name": "tensorrt"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "python3-libnvinfer_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "python3-libnvinfer_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 463678,
+                            "checksum": "8adcd03ac89a0272b2acf5c99b8f9f22",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "python3-libnvinfer"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "python3-libnvinfer-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "python3-libnvinfer-dev_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 3612,
+                            "checksum": "f9c6161a58ee7f25512ab225db725707",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "python3-libnvinfer-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "graphsurgeon-tf_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "graphsurgeon-tf_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 14574,
+                            "checksum": "f0b8feb779eb27c9e1a2cce566645086",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "graphsurgeon-tf"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "uff-converter-tf_8.0.1-1+cuda10.2_arm64.deb",
+                            "fileName": "uff-converter-tf_8.0.1-1+cuda10.2_arm64.deb",
+                            "size": 27102,
+                            "checksum": "21c96541486969bbcdde8e41eff091b2",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1-1+cuda10.2",
+                                            "name": "uff-converter-tf"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        },
+                        {
+                            "id": "NV_L4T_CUDNN_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "8.2"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_OPENCV_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_OPENCV_TARGET_POST_INSTALL_COMP",
+            "name": "OpenCV on Target",
+            "description": "OpenCV for Jetson.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OPENCV_EULA",
+            "versions": [
+                {
+                    "version": "4.1.1",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 67.44,
+                    "downloadFiles": [
+                        {
+                            "url": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-libs.deb",
+                            "fileName": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-libs.deb",
+                            "size": 9920774,
+                            "checksum": "e19ba074d111c0af9f0bf7f4fcdfbfa7",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "4.1.1-2-gd5a58aa75",
+                                            "name": "libopencv"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "remoteExecBash": [
+                                                "safe_apt_install \"sudo apt-get update\" 5",
+                                                "safe_apt_install \"sudo apt-get install -y libtbb2 libtbb-dev\" 5",
+                                                "safe_apt_install \"sudo apt-get install -y python-dev python-numpy python-py python-pytest\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-dev.deb",
+                            "fileName": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-dev.deb",
+                            "size": 1022926,
+                            "checksum": "ad5a4d2513ec0ed2f743afb948adb9b0",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "4.1.1-2-gd5a58aa75",
+                                            "name": "libopencv-dev"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-licenses.deb",
+                            "fileName": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-licenses.deb",
+                            "size": 14240,
+                            "checksum": "9db88f13e55751329d16d6d6ec0ae4ac",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "4.1.1-2-gd5a58aa75",
+                                            "name": "opencv-licenses"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-python.deb",
+                            "fileName": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-python.deb",
+                            "size": 2350538,
+                            "checksum": "d622b7d729b62ecee44c9e7d289918cb",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "4.1.1-2-gd5a58aa75",
+                                            "name": "libopencv-python"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-samples.deb",
+                            "fileName": "OpenCV-4.1.1-2-gd5a58aa75-aarch64-samples.deb",
+                            "size": 192038,
+                            "checksum": "5969fc1376ac31cbadfd42276e271ffd",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "4.1.1-2-gd5a58aa75",
+                                            "name": "libopencv-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+                            "operator": "==",
+                            "ver": "1.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_VISIONWORKS_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_VISIONWORKS_TARGET_POST_INSTALL_COMP",
+            "name": "VisionWorks on Target",
+            "description": "NVIDIA VisionWorks Toolkit is a CUDA accelerated software development package for computer vision (CV) and image processing. The toolkit is designed to provide a production-quality, standard interface that implements and extends the OpenVX standard, enabling high performance computer vision applications on NVIDIA Tegra devices.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_VISIONWORKS_EULA",
+            "estimateInstallDurationSeconds": 550,
+            "versions": [
+                {
+                    "version": "1.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 239.03,
+                    "downloadFiles": [
+                        {
+                            "url": "libvisionworks-repo_1.6.0.501_arm64.deb",
+                            "fileName": "libvisionworks-repo_1.6.0.501_arm64.deb",
+                            "size": 60866742,
+                            "checksum": "6232660acb8305fc6e52125067fc0008",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks",
+                                            "version": "1.6.0.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-dev",
+                                            "version": "1.6.0.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-samples",
+                                            "version": "1.6.0.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades"
+                                }
+                            }
+                        },
+                        {
+                            "url": "libvisionworks-sfm-repo_0.90.4.501_arm64.deb",
+                            "fileName": "libvisionworks-sfm-repo_0.90.4.501_arm64.deb",
+                            "size": 20201988,
+                            "checksum": "4c0b65a88ce83049d8811bae4fafddbe",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks-sfm",
+                                            "version": "0.90.4.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-sfm-dev",
+                                            "version": "0.90.4.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades",
+                                    "postInstallCommands": [
+                                        {
+                                            "remoteExecBash": [
+                                                "/usr/share/visionworks-sfm/sources/install-samples.sh ~/ ; sleep 0.5; cd ~/VisionWorks-SFM-*-Samples/; make"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libvisionworks-tracking-repo_0.88.2.501_arm64.deb",
+                            "fileName": "libvisionworks-tracking-repo_0.88.2.501_arm64.deb",
+                            "size": 13108638,
+                            "checksum": "6c25179690472476d6b8ac94578a6289",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb_repo",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "name": "libvisionworks-tracking",
+                                            "version": "0.88.2.501"
+                                        },
+                                        {
+                                            "name": "libvisionworks-tracking-dev",
+                                            "version": "0.88.2.501"
+                                        }
+                                    ],
+                                    "aptSwitch": "--allow-downgrades"
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_VPI_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_VPI_TARGET_POST_INSTALL_COMP",
+            "name": "VPI on Target",
+            "description": "Vision Programming Interface(VPI) is an API for accelerated computer vision and image processing for embedded systems.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_VPI_EULA",
+            "versions": [
+                {
+                    "version": "1.1",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 153.13,
+                    "downloadFiles": [
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-lib-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-lib-1.1.12-aarch64-l4t.deb",
+                            "size": 16498066,
+                            "checksum": "bc79d5c392609c89f251fdf1593ee511",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "libnvvpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-dev-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-dev-1.1.12-aarch64-l4t.deb",
+                            "size": 55816,
+                            "checksum": "8ca7667595402e03ab8b0345b25e661d",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-dev"
+                                        }
+                                    ],
+                                    "preInstallCommands": [
+                                        {
+                                            "remoteExecBash": [
+                                                "safe_apt_install \"sudo apt-get update\" 5",
+                                                "safe_apt_install \"sudo apt-get install -y cmake g++\" 5"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-python2.7-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-python2.7-1.1.12-aarch64-l4t.deb",
+                            "size": 474246,
+                            "checksum": "a6e72c96ebcbd87a08347b16afdf1e5f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "python-vpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-python3.6-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-python3.6-1.1.12-aarch64-l4t.deb",
+                            "size": 471772,
+                            "checksum": "8f8f58d665fe99e21e953a4701ebb836",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "python3-vpi1"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-samples-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-samples-1.1.12-aarch64-l4t.deb",
+                            "size": 15144870,
+                            "checksum": "bd71a48423cb6b354b32f970d8cd409d",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-samples"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/jetpack_46_b199/vpi-demos-1.1.12-aarch64-l4t.deb",
+                            "fileName": "vpi-demos-1.1.12-aarch64-l4t.deb",
+                            "size": 32256698,
+                            "checksum": "14a7823391b7764f05157dd83485461a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.1.12",
+                                            "name": "vpi1-demos"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_CUDA_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "10.2"
+                        },
+                        {
+                            "id": "NV_L4T_OPENCV_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "4.1.1"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_DOCKER_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_DOCKER_TARGET_POST_INSTALL_COMP",
+            "name": "NVIDIA Container Runtime with Docker integration (Beta)",
+            "description": "NVIDIA Container Runtime with Docker integration. Build and run GPU accelerated containers with Docker.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "0.10",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 4.27,
+                    "downloadFiles": [
+                        {
+                            "url": "nvidia-container-csv-cuda_10.2.460-1_arm64.deb",
+                            "fileName": "nvidia-container-csv-cuda_10.2.460-1_arm64.deb",
+                            "size": 14856,
+                            "checksum": "e103901bc0992df3216fe5855ec46d54",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "10.2.460-1",
+                                            "name": "nvidia-container-csv-cuda"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-container-csv-cudnn_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "fileName": "nvidia-container-csv-cudnn_8.2.1.32-1+cuda10.2_arm64.deb",
+                            "size": 10196,
+                            "checksum": "5e5f745e72037315b145a60dc0589635",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.2.1.32-1+cuda10.2",
+                                            "name": "nvidia-container-csv-cudnn"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-container-csv-tensorrt_8.0.1.6-1+cuda10.2_arm64.deb",
+                            "fileName": "nvidia-container-csv-tensorrt_8.0.1.6-1+cuda10.2_arm64.deb",
+                            "size": 13798,
+                            "checksum": "4418a7d96d51e8d09b6c098d2fbf921a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "8.0.1.6-1+cuda10.2",
+                                            "name": "nvidia-container-csv-tensorrt"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-container-csv-visionworks_1.6.0.501_arm64.deb",
+                            "fileName": "nvidia-container-csv-visionworks_1.6.0.501_arm64.deb",
+                            "size": 31112,
+                            "checksum": "afa252ef5d96ab58e6c3672c6b5f90ed",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.6.0.501",
+                                            "name": "nvidia-container-csv-visionworks"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvidia-container0_0.10.0+jetpack_arm64.deb",
+                            "fileName": "libnvidia-container0_0.10.0+jetpack_arm64.deb",
+                            "size": 42220,
+                            "checksum": "de8ecbb1dc7086d6c882519fe4f319da",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "0.10.0+jetpack",
+                                            "name": "libnvidia-container0"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "libnvidia-container-tools_0.10.0+jetpack_arm64.deb",
+                            "fileName": "libnvidia-container-tools_0.10.0+jetpack_arm64.deb",
+                            "size": 13024,
+                            "checksum": "ef81d88d5a23ed96a08c8a1adb6ee848",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "0.10.0+jetpack",
+                                            "name": "libnvidia-container-tools"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-container-toolkit_1.0.1-1_arm64.deb",
+                            "fileName": "nvidia-container-toolkit_1.0.1-1_arm64.deb",
+                            "size": 501768,
+                            "checksum": "48cc6c5935636fafb6b2f1078f721cbc",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "1.0.1-1",
+                                            "name": "nvidia-container-toolkit"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-container-runtime_3.1.0-1_arm64.deb",
+                            "fileName": "nvidia-container-runtime_3.1.0-1_arm64.deb",
+                            "size": 534888,
+                            "checksum": "5f72ea29de7fc6447a8d318e422db46a",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "3.1.0-1",
+                                            "name": "nvidia-container-runtime"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "url": "nvidia-docker2_2.2.0-1_all.deb",
+                            "fileName": "nvidia-docker2_2.2.0-1_all.deb",
+                            "size": 2940,
+                            "checksum": "cef544ada8bb548e9960987e930cb6fe",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "2.2.0-1",
+                                            "name": "nvidia-docker2"
+                                        }
+                                    ],
+                                    "postInstallCommands": [
+                                        {
+                                            "userCommand": "sudo pkill -SIGHUP dockerd",
+                                            "ignoreError": true
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "8.0"
+                        },
+                        {
+                            "id": "NV_L4T_VISIONWORKS_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "1.6"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T186_COMP": {
+            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T186_COMP",
+            "name": "Multimedia API",
+            "description": "Multimedia API offers developers to use the lower level APIs for flexible application development. This is in addition to the Gstreamer framework available from the previous releases.\nThe APIs include Argus API for imaging applications and V4L2 for encode, decode, scaling and other media functions. These lower level APIs provide a better control over the underlying hardware blocks. ",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 91.2,
+                    "downloadFiles": [
+                        {
+                            "url": "T186/nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122859_arm64.deb",
+                            "fileName": "nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122859_arm64.deb",
+                            "size": 75225300,
+                            "checksum": "0354ea23a4d0484d7d2bfd6791ed702f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "32.6.1-20210726122859",
+                                            "name": "nvidia-l4t-jetson-multimedia-api"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX2_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "8.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T194_COMP": {
+            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T194_COMP",
+            "name": "Multimedia API",
+            "description": "Multimedia API offers developers to use the lower level APIs for flexible application development. This is in addition to the Gstreamer framework available from the previous releases.\nThe APIs include Argus API for imaging applications and V4L2 for encode, decode, scaling and other media functions. These lower level APIs provide a better control over the underlying hardware blocks. ",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 91.2,
+                    "downloadFiles": [
+                        {
+                            "url": "T194/nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122859_arm64.deb",
+                            "fileName": "nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122859_arm64.deb",
+                            "size": 75225300,
+                            "checksum": "0354ea23a4d0484d7d2bfd6791ed702f",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "32.6.1-20210726122859",
+                                            "name": "nvidia-l4t-jetson-multimedia-api"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "8.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T210_COMP": {
+            "id": "NV_L4T_MULTIMEDIA_API_TARGET_POST_INSTALL_T210_COMP",
+            "name": "Multimedia API",
+            "description": "Multimedia API offers developers to use the lower level APIs for flexible application development. This is in addition to the Gstreamer framework available from the previous releases.\nThe APIs include Argus API for imaging applications and V4L2 for encode, decode, scaling and other media functions. These lower level APIs provide a better control over the underlying hardware blocks. ",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_JETPACK_OS_EULA",
+            "versions": [
+                {
+                    "version": "32.6",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 91.2,
+                    "downloadFiles": [
+                        {
+                            "url": "T210/nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122000_arm64.deb",
+                            "fileName": "nvidia-l4t-jetson-multimedia-api_32.6.1-20210726122000_arm64.deb",
+                            "size": 75219138,
+                            "checksum": "4a9fe6813cdf2f25005568c08f5ee0d5",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "32.6.1-20210726122000",
+                                            "name": "nvidia-l4t-jetson-multimedia-api"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_L4T_TENSORRT_TARGET_POST_INSTALL_COMP",
+                            "operator": "==",
+                            "ver": "8.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        },
+        "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_TARGET_POST_INSTALL_COMP": {
+            "id": "NV_L4T_NVIDIA_NSIGHT_SYSTEMS_TARGET_POST_INSTALL_COMP",
+            "name": "NVIDIA Nsight Systems",
+            "description": "NVIDIA Nsight Systems is a multi-core CPU sampling profiler that provides an interactive view of captured profiling data, helping improve overall application performance.",
+            "compType": "target",
+            "isVisible": true,
+            "licenseId": "NV_NSIGHT_EULA",
+            "versions": [
+                {
+                    "version": "2021.2",
+                    "operatingSystems": [
+                        "ubuntu1604",
+                        "ubuntu1804"
+                    ],
+                    "installSizeMB": 147.25,
+                    "downloadFiles": [
+                        {
+                            "url": "nsight-systems-cli-2021.2.3_2021.2.3.8-1_arm64.deb",
+                            "fileName": "nsight-systems-cli-2021.2.3_2021.2.3.8-1_arm64.deb",
+                            "size": 51140862,
+                            "checksum": "583894c24a48b03e01af94529ce43282",
+                            "checksumType": "md5",
+                            "verifyChecksum": "yes",
+                            "installParameters": {
+                                "installType": "target_deb",
+                                "installEngineQueue": "default",
+                                "additionalParameters": {
+                                    "packagesInfo": [
+                                        {
+                                            "version": "2021.2.3.8-73c8c79",
+                                            "name": "nsight-systems-cli-2021.2.3"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "targetIds": [
+                        "CLARA_AGX_DEVKIT_TARGETS",
+                        "JETSON_AGX_XAVIER_TARGETS",
+                        "JETSON_XAVIER_NX_TARGETS",
+                        "JETSON_TX2_TARGETS",
+                        "JETSON_TX1_TARGETS",
+                        "JETSON_NANO_TARGETS"
+                    ],
+                    "dependencies": [
+                        {
+                            "id": "NV_DATETIME_SETUP_TARGET_COMP",
+                            "operator": "==",
+                            "ver": "1.0"
+                        }
+                    ],
+                    "prerequisites": []
+                }
+            ],
+            "isDetectableInstall": true,
+            "isPartiallyDetectableInstall": false
+        }
+    },
+    "externals": {},
+    "licenses": {
+        "NV_JETPACK_CUDA_EULA": {
+            "id": "NV_JETPACK_CUDA_EULA",
+            "name": "Software License Agreement for CUDA",
+            "url": "NV_JETPACK_CUDA_EULA.txt"
+        },
+        "NV_JETPACK_CUDNN_EULA": {
+            "id": "NV_JETPACK_CUDNN_EULA",
+            "name": "Software License Agreement for cuDNN",
+            "url": "NV_JETPACK_CUDNN_EULA.txt"
+        },
+        "NV_JETPACK_OS_EULA": {
+            "id": "NV_JETPACK_OS_EULA",
+            "name": "Software License Agreement for OS",
+            "url": "NV_JETPACK_OS_EULA.txt"
+        },
+        "NV_NSIGHT_EULA": {
+            "id": "NV_NSIGHT_EULA",
+            "name": "Software License Agreement for Developer Tools",
+            "url": "NV_NSIGHT_EULA.txt"
+        },
+        "NV_JETPACK_TENSORRT_EULA": {
+            "id": "NV_JETPACK_TENSORRT_EULA",
+            "name": "Software License Agreement for TensorRT",
+            "url": "NV_JETPACK_TENSORRT_EULA.txt"
+        },
+        "NV_JETPACK_VPI_EULA": {
+            "id": "NV_JETPACK_VPI_EULA",
+            "name": "Software License Agreement for VPI",
+            "url": "NV_JETPACK_VPI_EULA.txt"
+        },
+        "NV_JETPACK_OPENCV_EULA": {
+            "id": "NV_JETPACK_OPENCV_EULA",
+            "name": "Software License Agreement for OpenCV",
+            "url": "NV_JETPACK_OPENCV_EULA.txt"
+        },
+        "NV_JETPACK_VISIONWORKS_EULA": {
+            "id": "NV_JETPACK_VISIONWORKS_EULA",
+            "name": "Software License Agreement for VisionWorks",
+            "url": "NV_JETPACK_VISIONWORKS_EULA.txt"
+        }
+    }
+}
