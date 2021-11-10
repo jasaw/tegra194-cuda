@@ -25,7 +25,6 @@ We have 3 options here:
    - https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/JETPACK_46_b194/libcudnn8-dev_8.2.1.32-1+cuda10.2_arm64.deb
 2. Download SDK Manager from https://developer.nvidia.com/nvidia-sdk-manager
    - Install the SDK Manager. It is usually installed here: `/opt/nvidia/sdkmanager/sdkmanager-gui`
-   - Use it to download JetPack 4.6 for Jetson Nano. At the time of this writing, it has a bug that prevents it from installing the packages automatically.
 
 3. Use SDK Manager to generate `sdkml3_jetpack_l4t_46_ga_r2.json` file, then download straight from the URLs in the file.
    - https://developer.nvidia.com/assets/embedded/secure/tools/files/jetpack-sdks/jetpack-4.6/JETPACK_46_b194/ubuntu1804/cuda-repo-ubuntu1804-10-2-local_10.2.460-450.115-1_amd64.deb
@@ -45,14 +44,14 @@ We have 3 options here:
    - `sudo apt install -y gnupg libgomp1 libfreeimage-dev libopenmpi-dev openmpi-bin`
    - `sudo apt-get -y --allow-downgrades install cuda-toolkit-10-2 cuda-cross-aarch64-10-2`
    - Development files will be installed in `/usr/local/cuda-10.2` directory.
-3. On a Jetson Nano running Ubuntu, install `cuda-repo-l4t-10-2-local_10.2.460-1_arm64.deb`
+3. On a Jetson Xavier NX running Ubuntu, install `cuda-repo-l4t-10-2-local_10.2.460-1_arm64.deb`
    - `sudo dpkg --force-all -i cuda-repo-l4t-10-2-local_10.2.460-1_arm64.deb`
    - `sudo apt-key add /var/cuda-repo-10-2-local-10.2*/*.pub'`
    - `sudo apt-get -y update`
    - `sudo apt install -y gnupg libgomp1 libfreeimage-dev libopenmpi-dev openmpi-bin`
    - `sudo apt-get -y --allow-downgrades install cuda-toolkit-10-2 cuda-cross-aarch64-10-2`
    - Development files will be installed in `/usr/local/cuda-10.2` directory.
-4. On a Jetson Nano running Ubuntu, extract `libcudnn8_8.2.1.32-1+cuda10.2_arm64.deb` and `libcudnn8-dev_8.2.1.32-1+cuda10.2_arm64.deb`
+4. On a Jetson Xavier NX running Ubuntu, extract `libcudnn8_8.2.1.32-1+cuda10.2_arm64.deb` and `libcudnn8-dev_8.2.1.32-1+cuda10.2_arm64.deb`
    - `mkdir -p ~/libcudnn-8.2.1.32/dev`
    - `mkdir -p ~/libcudnn-8.2.1.32/rt`
    - `mkdir -p /tmp/libcudnn-8.2.1.32/dev`
@@ -67,12 +66,12 @@ We have 3 options here:
 
 ### Compress the libraries
 
-1. On a Jetson Nano running Ubuntu, compress CUDA core libraries
+1. On a Jetson Xavier NX running Ubuntu, compress CUDA core libraries
    - `mkdir -p ~/cuda-10.2-tegra194/usr/local`
    - `cp -arf /usr/local/cuda-10.2 ~/cuda-10.2-tegra194/usr/local`
    - `cd ~`
    - `XZ_OPT=-9 tar cfJ cuda-10.2-tegra194.tar.xz cuda-10.2-tegra194`
-2. On a Jetson Nano running Ubuntu, compress CUDA DNN library
+2. On a Jetson Xavier NX running Ubuntu, compress CUDA DNN library
    - `cd ~`
    - `XZ_OPT=-9 tar cfJ libcudnn-8.2.1.32-tegra194.tar.xz libcudnn-8.2.1.32`
 
