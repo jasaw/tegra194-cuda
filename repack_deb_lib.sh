@@ -61,8 +61,8 @@ do
 	unpack_deb "../../dl/$f"
 done
 cd ../..
-mkdir output/cuda-${CUDA_VERSION}-tegra210
-cd output/cuda-${CUDA_VERSION}-tegra210
+mkdir output/cuda-${CUDA_VERSION}-tegra194
+cd output/cuda-${CUDA_VERSION}-tegra194
 find ../tmp_target -type f -name "*.deb" | xargs -I % sh -c 'echo "Extracting %" ; ar x "%" ; tar xf data.tar.xz '
 rm -f control.tar.xz control.tar.gz data.tar.xz debian-binary _gpgbuilder
 rm -rf usr/share/doc usr/local/cuda-${CUDA_VERSION}/tools usr/local/cuda-${CUDA_VERSION}/doc usr/local/cuda-${CUDA_VERSION}/samples
@@ -85,10 +85,10 @@ cd ../..
 
 # Compress
 cd output
-echo "Compressing tegra210 CUDA files to output/cuda-${CUDA_VERSION}-tegra210.tar.xz"
-XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}-tegra210.tar.xz cuda-${CUDA_VERSION}-tegra210
-echo "Compressing tegra210 CUDA DNN files to output/libcudnn-${LIBCUDNN_VERSION}-tegra210.tar.xz"
-XZ_OPT=-9 tar cfJ libcudnn-${LIBCUDNN_VERSION}-tegra210.tar.xz libcudnn-${LIBCUDNN_VERSION}
+echo "Compressing tegra194 CUDA files to output/cuda-${CUDA_VERSION}-tegra194.tar.xz"
+XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}-tegra194.tar.xz cuda-${CUDA_VERSION}-tegra194
+echo "Compressing tegra194 CUDA DNN files to output/libcudnn-${LIBCUDNN_VERSION}-tegra194.tar.xz"
+XZ_OPT=-9 tar cfJ libcudnn-${LIBCUDNN_VERSION}-tegra194.tar.xz libcudnn-${LIBCUDNN_VERSION}
 echo "Compressing ${HOST_OS} CUDA files to output/cuda-${CUDA_VERSION}-${HOST_OS}.tar.xz"
 XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}-${HOST_OS}.tar.xz cuda-${CUDA_VERSION}-${HOST_OS}
 
