@@ -85,11 +85,11 @@ cd ../..
 
 # Compress
 cd output
-echo "Compressing tegra194 CUDA files to output/cuda-${CUDA_VERSION}-tegra194.tar.xz"
-XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}-tegra194.tar.xz cuda-${CUDA_VERSION}-tegra194
+echo "Compressing tegra194 CUDA files to output/cuda-${CUDA_VERSION}.${CUDA_MICRO_VERSION}-tegra194.tar.xz"
+XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}.${CUDA_MICRO_VERSION}-tegra194.tar.xz cuda-${CUDA_VERSION}-tegra194
 echo "Compressing tegra194 CUDA DNN files to output/libcudnn-${LIBCUDNN_VERSION}-tegra194.tar.xz"
 XZ_OPT=-9 tar cfJ libcudnn-${LIBCUDNN_VERSION}-tegra194.tar.xz libcudnn-${LIBCUDNN_VERSION}
-echo "Compressing ${HOST_OS} CUDA files to output/cuda-${CUDA_VERSION}-${HOST_OS}.tar.xz"
-XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}-${HOST_OS}.tar.xz cuda-${CUDA_VERSION}-${HOST_OS}
+echo "Compressing ${HOST_OS} CUDA files to output/cuda-${CUDA_VERSION}.${CUDA_MICRO_VERSION}-${HOST_OS}.tar.xz"
+XZ_OPT=-9 tar cfJ cuda-${CUDA_VERSION}.${CUDA_MICRO_VERSION}-${HOST_OS}.tar.xz cuda-${CUDA_VERSION}-${HOST_OS}
 
 echo Done
